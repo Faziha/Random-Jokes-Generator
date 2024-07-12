@@ -1,26 +1,10 @@
-// Array of jokes
-const jokes = [
-    "Why don't scientists trust atoms? Because they make up everything!",
-    "Why did the scarecrow win an award? Because he was outstanding in his field!",
-    "Why don't skeletons fight each other? They don't have the guts.",
-    "What do you call fake spaghetti? An impasta!",
-    "How do you organize a space party? You planet.",
-    "Why did the math book look sad? Because it had too many problems.",
-    "What do you get when you cross a snowman and a vampire? Frostbite.",
-    "Why did the bicycle fall over? Because it was two-tired.",
-    "What do you call cheese that isn't yours? Nacho cheese.",
-    "Why don't some couples go to the gym? Because some relationships don't work out."
-];
-
-// Function to display a random joke
-function displayRandomJoke() {
-    const jokeContainer = document.getElementById('jokeContainer');
-    const randomIndex = Math.floor(Math.random() * jokes.length);
-    jokeContainer.innerHTML = jokes[randomIndex];
+function updateTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
 }
 
-// Add event listener to the button
-document.getElementById('jokeButton').addEventListener('click', displayRandomJoke);
-
-// Display a joke when the page loads
-displayRandomJoke();
+setInterval(updateTime, 1000);
+updateTime(); // initial call to display the time immediately
